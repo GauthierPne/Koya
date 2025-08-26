@@ -170,13 +170,17 @@ main {
 
 /* Carte joueur */
 .joueur-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* contenu vers le bas */
+    align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;   /* largeur fixe identique pour toutes les cartes */
+    height: 400px;  /* même hauteur aussi */
+    box-sizing: border-box; /* pour éviter que le padding change la taille */
     text-align: center;
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
 }
 
 .joueur-card:hover {
@@ -205,4 +209,11 @@ main {
     font-size: 0.9em;
     color: #ddd;
     margin-top: 10px;
+}
+
+.joueurs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* grilles responsives */
+    gap: 20px; /* espace entre les cartes */
+    justify-items: center; /* centre les cartes */
 }
