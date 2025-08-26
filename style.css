@@ -1,0 +1,208 @@
+/* --- Couleurs & base --- */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #680579, #680579);
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #680579; /* violet foncé */
+}
+
+.logo-koya {
+    width: 90px;
+    height: auto;
+}
+
+/* Titre si besoin */
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: white;
+}
+
+/* --- Bouton menu burger --- */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* --- Menu déroulant --- */
+.menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #9707B0; /* violet plus clair */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin: 10px 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #9707B0;
+}
+
+/* Quand actif */
+.menu.active {
+    display: block;
+}
+
+/* RESPONSIVE : grand écran */
+@media(min-width: 768px) {
+    .menu {
+        display: block;
+        position: static;
+        background: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .menu ul {
+        display: flex;
+        gap: 25px;
+    }
+
+    .menu li {
+        margin: 0;
+    }
+
+    .menu a {
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* --- Section joueurs --- */
+section#joueurs {
+    padding: 40px 20px;
+}
+
+.joueur-card {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+/* --- Réseaux sociaux --- */
+.social-icons a {
+    color: white;
+    margin: 0 15px;
+    font-size: 2em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #9707B0;
+    transform: scale(1.2);
+}
+
+/* --- Footer --- */
+footer {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1px 0; /* réduit la hauteur */
+    font-size: 0.9em; /* texte un peu plus petit */
+}
+
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* pousse le footer en bas */
+}
+
+
+
+
+/* Grille des joueurs */
+.joueurs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Carte joueur */
+.joueur-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+}
+
+.joueur-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+    border: 2px solid #9707B0; /* effet violet au hover */
+}
+
+/* Image joueur */
+.joueur-card img {
+    width: 150px;       /* largeur du cercle */
+    height: 150px;      /* hauteur égale pour faire un cercle parfait */
+    object-fit: contain;  /* garde le cadrage tout en remplissant le cercle */
+    border-radius: 50%; /* rend l'image ronde */
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #111;   /* fond si l'image a des espaces */
+}
+
+
+/* Citation */
+.joueur-card blockquote {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #ddd;
+    margin-top: 10px;
+}
