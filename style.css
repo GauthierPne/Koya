@@ -1,11 +1,21 @@
 /* --- Couleurs & base --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #680579, #680579);
     color: white;
-    margin: 0;
-    padding: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* pousse le footer en bas */
 }
 
 /* --- HEADER --- */
@@ -22,7 +32,6 @@ header {
     height: auto;
 }
 
-/* Titre si besoin */
 header h1 {
     font-size: 2em;
     margin: 0;
@@ -44,7 +53,7 @@ header h1 {
     position: absolute;
     top: 70px;
     right: 20px;
-    background: #9707B0; /* violet plus clair */
+    background: #9707B0;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -60,24 +69,46 @@ header h1 {
     margin: 10px 0;
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
+/* Liens du menu avec effet néon + soulignement animé */
+.menu ul li a {
+    position: relative;
+    color: #fff;
     font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 5px #9707B0, 0 0 10px #680579, 0 0 20px #9707B0;
 }
 
-.menu a:hover {
+.menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: #9707B0;
+    transition: width 0.3s ease-in-out;
+    box-shadow: 0 0 5px #9707B0, 0 0 10px #680579;
+}
+
+.menu ul li a:hover {
     color: #9707B0;
+    text-shadow: 0 0 10px #9707B0, 0 0 20px #680579, 0 0 30px #9707B0;
 }
 
-/* Quand actif */
+.menu ul li a:hover::after {
+    width: 100%;
+}
+
+/* Menu actif */
 .menu.active {
     display: block;
 }
 
-/* RESPONSIVE : grand écran */
+/* RESPONSIVE */
 @media(min-width: 768px) {
     .menu {
         display: block;
@@ -97,10 +128,6 @@ header h1 {
         margin: 0;
     }
 
-    .menu a {
-        font-size: 18px;
-    }
-
     .menu-toggle {
         display: none;
     }
@@ -111,12 +138,84 @@ section#joueurs {
     padding: 40px 20px;
 }
 
+.joueurs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Carte joueur */
 .joueur-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* contenu vers le bas */
+    align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    max-width: 300px;
+    width: 300px;
+    height: 400px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    margin: 20px auto;
+}
+
+.joueur-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+    border: 2px solid #9707B0;
+}
+
+/* Image joueur */
+.joueur-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background: #111;
+}
+
+/* Citation */
+.joueur-card blockquote {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #ddd;
+    margin-top: 10px;
+}
+
+/* Container joueurs */
+.joueurs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* --- Staff title --- */
+.staff-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px #9707B0, 0 0 20px #680579, 0 0 30px #9707B0;
+}
+
+.staff-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #9707B0, #680579);
+    margin: 15px auto 0 auto;
+    border-radius: 2px;
 }
 
 /* --- Réseaux sociaux --- */
@@ -135,85 +234,48 @@ section#joueurs {
 /* --- Footer --- */
 footer {
     background: rgba(0, 0, 0, 0.2);
-    padding: 1px 0; /* réduit la hauteur */
-    font-size: 0.9em; /* texte un peu plus petit */
-}
-
-
-
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1; /* pousse le footer en bas */
-}
-
-
-
-
-/* Grille des joueurs */
-.joueurs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Carte joueur */
-.joueur-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* contenu vers le bas */
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;   /* largeur fixe identique pour toutes les cartes */
-    height: 400px;  /* même hauteur aussi */
-    box-sizing: border-box; /* pour éviter que le padding change la taille */
-    text-align: center;
-}
-
-.joueur-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
-    border: 2px solid #9707B0; /* effet violet au hover */
-}
-
-/* Image joueur */
-.joueur-card img {
-    width: 150px;       /* largeur du cercle */
-    height: 150px;      /* hauteur égale pour faire un cercle parfait */
-    object-fit: contain;  /* garde le cadrage tout en remplissant le cercle */
-    border-radius: 50%; /* rend l'image ronde */
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background: #111;   /* fond si l'image a des espaces */
-}
-
-
-/* Citation */
-.joueur-card blockquote {
-    font-style: italic;
+    padding: 5px 0;
     font-size: 0.9em;
-    color: #ddd;
-    margin-top: 10px;
 }
 
-.joueurs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* grilles responsives */
-    gap: 20px; /* espace entre les cartes */
-    justify-items: center; /* centre les cartes */
+
+
+
+.presentation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px 50px;
+    flex-wrap: wrap; /* responsive */
+}
+
+.presentation-text {
+    flex: 2;
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+
+.presentation-info {
+    flex: 1;
+    max-width: 280px;   /* ✅ largeur max plus réduite */
+    
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center; /* ✅ tout le contenu centré */
+    margin: 0 auto;     /* centre la box dans sa colonne */
+}
+
+
+.presentation-info img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+
+
+
+.presentation-info strong {
+    color: #9707B0;
 }
