@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koya - Joueurs</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <img src="image/logokoya.jpg" alt="Logo Koya" class="logo-koya">
+        <img src="./image/logokoya.jpg" alt="Logo Koya" class="logo-koya">
 
         <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         <nav class="menu">
@@ -27,42 +27,42 @@
         <h1 class="staff-title">Joueurs</h1>
         <div class="joueurs-grid">
             <div class="joueur-card">
-                <img src="image/boontyftn.png" alt="Joueur 1">
+                <img src="./image/boontyftn.png" alt="Joueur 1">
                 <h3>Boonty</h3>
                 <p>🎮 Jeu : Fortnite</p>
                 <p>🎭 Rôle : Esport</p>
                 <blockquote>"Jeune mais puissant"</blockquote>
             </div>
             <div class="joueur-card">
-                <img src="image/dabi.jpg" alt="Joueur 2">
+                <img src="./image/dabi.jpg" alt="Joueur 2">
                 <h3>Dabi    </h3>
                 <p>🎮 Jeu : Fortnite</p>
                 <p>🎭 Rôle : Esport</p>
                 <blockquote>"Déteste les cheaters"</blockquote>
             </div>
             <div class="joueur-card" onclick="window.open('https://www.tiktok.com/@koyaesport/video/7542531837554445590','_blank')">
-                <img src="image/kriko.jpg" alt="Joueur 3">
+                <img src="./image/kriko.jpg" alt="Joueur 3">
                 <h3>Kriko</h3>
                 <p>🎮 Jeu : Fortnite</p>
                 <p>🎭 Rôle : Esport</p>
                 <blockquote>"Vie pour son tracker"</blockquote>
             </div>
             <div class="joueur-card">
-                <img src="image/kayzox.jpg" alt="Joueur 3">
+                <img src="./image/kayzox.jpg" alt="Joueur 3">
                 <h3>Kayzox</h3>
                 <p>🎮 Jeu : Fortnite</p>
                 <p>🎭 Rôle : Académique </p>
                 <blockquote>"Fou amoureux de Koya"</blockquote>
             </div>
             <div class="joueur-card">
-                <img src="image/treekle.jpg" alt="Joueur 3">
+                <img src="./image/treekle.jpg" alt="Joueur 3">
                 <h3>Treekle</h3>
                 <p>🎮 Jeu : Fortnite</p>
                 <p>🎭 Rôle : Académique </p>
                 <blockquote>"Terrorise ses adversaires"</blockquote>
             </div>
             <div class="joueur-card">
-                <img src="image/xaly.jpg" alt="Joueur 3">
+                <img src="./image/xaly.jpg" alt="Joueur 3">
                 <h3>Xaly</h3>
                 <p>🎮 Jeu : Fortnite</p>
                 <p>🎭 Rôle : Académique </p>
@@ -86,6 +86,14 @@
         </div><br>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+    
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
