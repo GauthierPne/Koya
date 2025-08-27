@@ -302,3 +302,60 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* --- Page Contact --- */
+.contact-main {
+    padding: 20px 20px; /* réduit le padding en haut pour remonter le contenu */
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px #9707B0, 0 0 20px #680579;
+    margin-bottom: 40px; /* réduit l’espace entre le titre et le bloc */
+    position: relative;
+}
+
+/* Petite barre décorative sous le titre */
+.contact-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #9707B0, #680579);
+    margin: 20px auto 0 auto; /* barre proche du titre */
+    border-radius: 2px;
+}
+
+/* Bloc de contact */
+.contact-box {
+    max-width: 600px;
+    margin: 0 auto; /* centre le bloc */
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    color: #fff;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* Liens des réseaux et mail */
+.contact-box a {
+    color: #fff;              /* texte blanc */
+    font-weight: bold;         /* gras */
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 5px #9707B0, 0 0 10px #680579, 0 0 20px #9707B0; /* effet néon permanent */
+}
+
+/* Effet au survol */
+.contact-box a:hover {
+    color: #9707B0; /* violet au survol */
+    text-shadow: 0 0 10px #9707B0, 0 0 20px #680579, 0 0 30px #9707B0; /* intensifie l'effet */
+}
